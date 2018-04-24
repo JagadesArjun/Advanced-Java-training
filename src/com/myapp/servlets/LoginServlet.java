@@ -87,7 +87,7 @@ public class LoginServlet extends HttpServlet {
 		String result = "";
 		if (found == true) {
 			session.setAttribute("userLoggedIn", "true");
-			result = "displayProducts.html";
+			result = "displayProducts.jsp";
 
 			// will create a cookie and store the logged in information in the cookie
 

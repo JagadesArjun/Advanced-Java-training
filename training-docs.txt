@@ -46,6 +46,18 @@ Database:
 	To insert user to user table:
 		insert into demo.user (username, password, emailid, gender, hobbies) values ("Admin", "password", "admin@abc.com", "Male", "Watching, Playing");
 
+	To create product table:
+		create table demo.product (id int primary key auto_increment, name varchar(100), description varchar(255), price double, type varchar(15));
+		
+	To insert product to product table:
+		insert into demo.product (name, description, price, type) values ("Samsung", "Samsunsg Mobile", 10000, "mobile");
+		insert into demo.product (name, description, price, type) values ("Redmi", "Redmi Mobile", 20000, "mobile");
+		insert into demo.product (name, description, price, type) values ("HP", "HP Laptop", 35000, "laptop");
+		insert into demo.product (name, description, price, type) values ("Dell", "Dell Laptop", 30000, "laptop");
+		insert into demo.product (name, description, price, type) values ("Case Cover", "Mobile case cover", 200, "accessories");
+		insert into demo.product (name, description, price, type) values ("Case Cover 2", "Mobile case cover 2", 300, "accessories");
+	
+		
 Copy the mysql-connector jar to AppMainFolder -> WebContent -> WEB-INF -> lib folder		
 		
 		

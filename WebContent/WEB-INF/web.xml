@@ -94,6 +94,16 @@
 		<servlet-name>requestHeadersServlet</servlet-name>
 		<url-pattern>/requestHeadersServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>productListServlet</servlet-name>
+		<servlet-class>com.myapp.servlets.ProductListServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>productListServlet</servlet-name>
+		<url-pattern>/productListServlet</url-pattern>
+	</servlet-mapping>
 
 	<servlet>
 		<servlet-name>WelcomeServlet</servlet-name>
