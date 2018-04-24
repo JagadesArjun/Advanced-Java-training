@@ -1,20 +1,62 @@
+Prerequisits:
+	Tomcat server installed.
+	Java 1.8 installed.
+	MySQL installed.
+
+Tomcat needs the following directory structure to run the application
 Directory structure:
 
-	Application -> WEB-INF -> lib -> *.jar (Jar's required to run application)
+	App Main Folder -> WEB-INF -> lib -> *.jar (Jar's required to run application)
 					-> web.xml (Web Application related information) 
 					-> classes -> *.class
 			
-			-> All static files to be come under main application folder
+					-> All static files to be come under main application folder
+					-------------------------------------------------------------------------------
 			
-			-> index.html (*.html files required to run application in browser)
+						-> index.html (*.html files required to run application in browser)
 			
-			-> images -> Image files (All images required for the project) (*.jpg, *png, *.svg)
+						-> images -> Image files (All images required for the project) (*.jpg, *png, *.svg)
 			
-			-> css -> CSS files (All CSS files required for the project) (*.css)
+						-> css -> CSS files (All CSS files required for the project) (*.css)
 			
-			-> js -> JS files (All JS files required for the project) (*.js)
+						-> js -> JS files (All JS files required for the project) (*.js)
 			
-			-> JSP -> JSP files (All JSP files)
+						-> JSP -> JSP files (All JSP files)
 		
 Servlets:
-	• Servlets are like a java application but it will run inside java application
+	• Servlets are like a java application but it will run inside java application(Tomcat, JBoss, Jetty)
+
+	
+Difference btw RequestDispacther and response.sendRedirect:
+	• RequestDispatcher:
+		It will transfer current request and response object to the next page.
+		Cannot able to redirect to other domains.
+		This will be a server redirect.
+		
+	• response.sendRedirect:
+		It will be fresh request and response.
+		Possible to redirect to other domain.
+		This will be a client redirect.
+		
+		
+Database:
+	To create user table:
+		create table demo.user (id int primary key auto_increment, username varchar(100), password varchar(100), emailid varchar(100), gender varchar(100), hobbies varchar(100));
+		
+	To insert user to user table:
+		insert into demo.user (username, password, emailid, gender, hobbies) values ("Admin", "password", "admin@abc.com", "Male", "Watching, Playing");
+
+Copy the mysql-connector jar to AppMainFolder -> WebContent -> WEB-INF -> lib folder		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

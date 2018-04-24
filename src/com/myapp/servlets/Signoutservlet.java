@@ -9,13 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class Signoutservlet extends HttpServlet{
+public class Signoutservlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		HttpSession session = request.getSession();
+
+		// Remove the session atrribute
 		session.removeAttribute("userLoggedIn");
-		
+
+		// This will destroy the session
+		session.invalidate();
+
 		RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
 		rd.forward(request, response);
 		return;

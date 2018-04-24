@@ -14,26 +14,24 @@ public class WelComeServlet implements Servlet{
 
 	private ServletConfig config = null;
 	public WelComeServlet(){
-		System.out.println("WelComeServlet Constructor..");
+		System.out.println("WelComeServlet: Constructor method called");
 	}
 	
 	//Each Servlet will have its own ServletConfig instance
 	//ServletConfig is used to retrieve the initialization parameters
-	
 	public ServletConfig getServletConfig() {
-		// TODO Auto-generated method stub
 		return config;
 	}
 	
+	// Purpose: some initialization logic like "connect to database"
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("init method calling");
-		System.out.println("purpose: some initialization logic like database");
+		System.out.println("WelComeServlet: init() method called");
 		this.config = config;
 	}
 
+	// Purpose: Business logic for a servlet will come here for each servlet
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-		System.out.println("Service method.. business logic for each request");
-		//Byusiness logic....
+		System.out.println("WelComeServlet: Service() method called");
 		
 		PrintWriter pw = response.getWriter();
 		
@@ -44,16 +42,17 @@ public class WelComeServlet implements Servlet{
 		while(initParams.hasMoreElements()){
 			String paramName = initParams.nextElement();
 			String paramValue = this.getServletConfig().getInitParameter(paramName);
-			pw.println("Param Name:" + paramName + " Param Value:" + paramValue + " <br/>");
+			pw.println("Param Name: " + paramName + " Param Value:" + paramValue + " <br/>");
 		}
 		
 		pw.println("<a href='index.html'>Go to Main Page</a>");
 		pw.close();
 	}
 	
+	// Purpose: will be called by tomcat before restarting the server or before destruction
+	// we can perform some pre destroy operation like unlink the "connection to database"
 	public void destroy() {
-		// TODO Auto-generated method stub
-		System.out.println("Welcome Servlet Destroy method..");
+		System.out.println("WelComeServlet: Destroy() method called");
 	}
 
 	
