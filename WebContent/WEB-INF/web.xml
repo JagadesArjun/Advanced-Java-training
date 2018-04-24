@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>MyApp</display-name>
+
+	<servlet>
+  	<servlet-name>signoutServlet</servlet-name>
+  	<servlet-class>com.myapp.servlets.Signoutservlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>signoutServlet</servlet-name>
+  	<url-pattern>/signoutServlet</url-pattern>  
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>loginServlet</servlet-name>
+  	<servlet-class>com.myapp.servlets.LoginServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>loginServlet</servlet-name>
+  	<url-pattern>/loginServlet</url-pattern>  
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>registerServlet</servlet-name>
+  	<servlet-class>com.myapp.servlets.RegisterServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>registerServlet</servlet-name>
+  	<url-pattern>/registerServlet</url-pattern>  
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>requestHeadersServlet</servlet-name>
+  	<servlet-class>com.myapp.servlets.RequestHeadersServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>requestHeadersServlet</servlet-name>
+  	<url-pattern>/requestHeadersServlet</url-pattern>  
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>WelcomeServlet</servlet-name>
+  	<servlet-class>com.myapp.servlets.WelComeServlet</servlet-class>
+  	
+  	<init-param>
+  		<param-name>dburl</param-name>
+  		<param-value>db url location value</param-value>
+  	</init-param>
+  	
+ 	<init-param>
+  		<param-name>username</param-name>
+  		<param-value>Admin</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>password</param-name>
+  		<param-value>Admin</param-value>
+  	</init-param>
+ 	 	
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>WelcomeServlet</servlet-name>
+  	<url-pattern>/WelcomeServlet</url-pattern>
+  </servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

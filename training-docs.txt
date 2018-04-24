@@ -1,0 +1,20 @@
+Directory structure:
+
+	Application -> WEB-INF -> lib -> *.jar (Jar's required to run application)
+					-> web.xml (Web Application related information) 
+					-> classes -> *.class
+			
+			-> All static files to be come under main application folder
+			
+			-> index.html (*.html files required to run application in browser)
+			
+			-> images -> Image files (All images required for the project) (*.jpg, *png, *.svg)
+			
+			-> css -> CSS files (All CSS files required for the project) (*.css)
+			
+			-> js -> JS files (All JS files required for the project) (*.js)
+			
+			-> JSP -> JSP files (All JSP files)
+		
+Servlets:
+	• Servlets are like a java application but it will run inside java application
