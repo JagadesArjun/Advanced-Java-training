@@ -1,29 +1,66 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"
+	import="java.util.List,java.util.ArrayList, com.myapp.utils.User"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Login</title>
 </head>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+</style>
 <body>
 
 	<!-- Display the information in jsp using below tags -->
 	<!-- JSP expressions -->
 
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Username</th>
+			<th>EmailId</th>
+			<th>Gender</th>
+			<th>Hobbies</th>
+		</tr>
+
+		<%
+			List<User> userList = (List<User>) request.getAttribute("userList");
+			if (userList != null) {
+				for (User user : userList) {
+					out.println("<tr><td>" + user.getId() + "</td><td>" + user.getName() + "</td><td> "
+							+ user.getEmailid() + "</td><td>" + user.getGender() + "</td><td>" + user.getHobbies()
+							+ "</td></tr>" + "<br/>");
+				}
+			}
+		%>
+	</table>
+
 	<!-- Retrieve the cookies from browser -->
 	<%
 		String userNameFromCookie = "";
 		String passwordFromCookie = "";
-		
+
 		Cookie cookies[] = request.getCookies();
-		for(Cookie cookie : cookies) {
+		for (Cookie cookie : cookies) {
 			String cookieName = cookie.getName();
 			String cookieValue = cookie.getValue();
-			
-			if("username".equals(cookieName)) {
+
+			if ("username".equals(cookieName)) {
 				userNameFromCookie = cookieValue;
 			}
-			
-			if("password".equals(cookieName)) {
+
+			if ("password".equals(cookieName)) {
 				passwordFromCookie = cookieValue;
 			}
 		}
@@ -38,16 +75,17 @@
 			out.println("User already logged in........");
 	%>
 	<br />
-	<a href="signoutServlet">Sign out</a>
+	<a href="/Signoutservlet">Sign out</a>
 	<%
 		} else {
 	%>
 
 	<form name="loginForm" action="loginServlet" method="post">
 		<h1>Login</h1>
-		Username <input type="text" name="userName" value="<%=userNameFromCookie%>"/> <br /> Password <input
-			type="password" name="password" value="<%=passwordFromCookie%>"/> <br /> <input type="submit"
-			value="Login" />
+		Username <input type="text" name="userName"
+			value="<%=userNameFromCookie%>" /> <br /> Password <input
+			type="password" name="password" value="<%=passwordFromCookie%>" /> <br />
+		<input type="submit" value="Login" />
 
 	</form>
 	<%
@@ -61,33 +99,30 @@
 	<%=request.getParameter("password") == null ? "" : request.getParameter("password")%>
 	<br />
 
-	
+
 	<!-- To get context params use application object -->
 	<strong>Context params</strong>
-	<br/>
-	driverName: 
-	<%=application.getInitParameter("driverName") == null ? "" : application.getInitParameter("driverName")%>
-	<br />
-	dburl: 
+	<br /> driverName:
+	<%=application.getInitParameter("driverName") == null ? ""
+					: application.getInitParameter("driverName")%>
+	<br /> dburl:
 	<%=application.getInitParameter("dburl") == null ? "" : application.getInitParameter("dburl")%>
-	<br />
-	username: 
+	<br /> username:
 	<%=application.getInitParameter("username") == null ? "" : application.getInitParameter("username")%>
-	<br />
-	password: 
+	<br /> password:
 	<%=application.getInitParameter("password") == null ? "" : application.getInitParameter("password")%>
 	<br />
-	
-	<br/>
+
+	<br />
 	<!-- Print the cookies in browser -->
-	<strong>Cookies in browser</strong> <br/>
+	<strong>Cookies in browser</strong>
+	<br />
 	<%
-		
 		Cookie cookiesPrint[] = request.getCookies();
-		for(Cookie cookie : cookiesPrint) {
+		for (Cookie cookie : cookiesPrint) {
 			String cookieName = cookie.getName();
 			String cookieValue = cookie.getValue();
-			
+
 			out.println("cookieName: " + cookieName + " cookieValue: " + cookieValue + "<br/>");
 		}
 	%>

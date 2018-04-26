@@ -58,7 +58,9 @@ Database:
 		insert into demo.product (name, description, price, type) values ("Case Cover 2", "Mobile case cover 2", 300, "accessories");
 	
 		
-Copy the mysql-connector jar to AppMainFolder -> WebContent -> WEB-INF -> lib folder		
+Copy the mysql-connector jar to AppMainFolder -> WebContent -> WEB-INF -> lib folder	
+
+Default session timeout for web application is 30 min.	
 		
 		
 		

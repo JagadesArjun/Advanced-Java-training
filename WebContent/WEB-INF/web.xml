@@ -5,6 +5,22 @@
 	id="WebApp_ID" version="3.1">
 	<display-name>MyApp</display-name>
 
+	<!-- Normally session timeout will be 30 min, you change it here -->
+	<session-config>
+		<session-timeout>2</session-timeout>
+	</session-config>
+
+	<!-- To display the error page accordin to the error code -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/pagenotfound.jsp</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>com.myapp.exception.ProductException</exception-type>
+		<location>/productException.jsp</location>
+	</error-page>
+
 	<!-- listen to if there is any new session created -->
 	<listener>
 		<listener-class>com.myapp.listener.MyappSessionListener</listener-class>
@@ -53,16 +69,7 @@
 
 
 	<!-- Servlets will be initialized here -->
-
-	<servlet>
-		<servlet-name>signoutServlet</servlet-name>
-		<servlet-class>com.myapp.servlets.Signoutservlet</servlet-class>
-	</servlet>
 	<!-- for the /any-url map the required servlet initialized -->
-	<servlet-mapping>
-		<servlet-name>signoutServlet</servlet-name>
-		<url-pattern>/signoutServlet</url-pattern>
-	</servlet-mapping>
 
 
 	<servlet>
@@ -94,7 +101,7 @@
 		<servlet-name>requestHeadersServlet</servlet-name>
 		<url-pattern>/requestHeadersServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>productListServlet</servlet-name>
 		<servlet-class>com.myapp.servlets.ProductListServlet</servlet-class>
@@ -139,4 +146,11 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+
+	<jsp-config>
+		<taglib>
+			<taglib-uri>tlds/mytags</taglib-uri>
+			<taglib-location>/WEB-INF/tlds/numberformatter.tld</taglib-location>
+		</taglib>
+	</jsp-config>
 </web-app>

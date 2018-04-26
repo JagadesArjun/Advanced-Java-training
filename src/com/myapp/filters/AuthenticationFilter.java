@@ -41,7 +41,7 @@ public class AuthenticationFilter implements Filter {
 		// Check if session object is true || url equals to login.jsp or lofinServlet,
 		// else redirect to login page
 		if (session.getAttribute("userLoggedIn") != null || (uri.contains("login.jsp")) || uri.contains("loginServlet")
-				|| uri.contains("registerServlet") || (uri.contains("register.html"))) {
+				|| uri.contains("registerServlet") || (uri.contains("register.html")) || (uri.contains("sample.jsp"))) {
 			chain.doFilter(arg0, arg1);
 			return;
 		} else {
